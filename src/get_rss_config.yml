@@ -3,6 +3,6 @@ config:
   check_back: 3
   
 feeds:
-  hak5: feeds2.feedburner.com/Hak5largeQuicktime
+  hak5: http://feeds2.feedburner.com/Hak5largeQuicktime
   
   

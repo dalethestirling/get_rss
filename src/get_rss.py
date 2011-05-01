@@ -13,7 +13,7 @@ import feedparser
 import sys
 import syck
 import os
-import urllib
+import urllib2
 
 config_file = sys.argv[1]
 
@@ -44,7 +44,7 @@ print get_config_vars['root_dir']
 
 print get_config['config'].keys()
 
-                
+
 #check for the root dir exists
 if not os.path.isdir(get_config_vars['root_dir']):
     sys.exit()
@@ -70,7 +70,7 @@ for category in get_feeds.keys():
 	item_ammount = get_config_vars['check_back']-1
 	print item_ammount
 	item_number = 0
-	#go through list amount and build downloads dictionary (aka. valid_podcat)
+	print feed #go through list amount and build downloads dictionary (aka. valid_podcat)
 	while item_number <= item_ammount:  
 		item = feed['items'][item_number]
 		enclosures = item['enclosures']
@@ -97,3 +97,4 @@ for category in get_feeds.keys():
 	
 	for podcast_file in valid_podcast.keys():
 		print podcast_file
+        
