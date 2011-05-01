@@ -83,7 +83,7 @@ for category in get_feeds.keys():
 			valid_podcast[str(fileName)] = str(entry['href'])
 		#increment by 1
 		item_number = item_number+1
-	
+	print 'dale'
 	print valid_podcast
 	
 	# clean files in category directory.
@@ -97,4 +97,9 @@ for category in get_feeds.keys():
 	
 	for podcast_file in valid_podcast.keys():
 		print podcast_file
-        
+        url = valid_podcast[podcast_file]
+        dest_file = '%s/%s/%s' % (get_config_vars['root_dir'], category, podcast_file)
+        remote_file = urllib2.urlopen(url)
+        local_file = open(dest_file, 'w')
+        local_file.write(remote_file.read())
+        local_file.close()
